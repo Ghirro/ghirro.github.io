@@ -1,0 +1,4767 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <title>Impala Developer Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;php&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="javascript">Node</a>
+              <a href="#" data-language-name="php">PHP</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#general" class="toc-h1 toc-link" data-title="general">General</a>
+          </li>
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="getting-started">Getting Started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getting-started-creating-an-application" class="toc-h2 toc-link" data-title="creating-an-application">Creating an application</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#developer-web-client" class="toc-h1 toc-link" data-title="developer-web-client">Developer Web Client</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#developer-web-client-modes" class="toc-h2 toc-link" data-title="modes">Modes</a>
+                  </li>
+                  <li>
+                    <a href="#developer-web-client-details" class="toc-h2 toc-link" data-title="details">Details</a>
+                  </li>
+                  <li>
+                    <a href="#developer-web-client-hotels" class="toc-h2 toc-link" data-title="hotels">Hotels</a>
+                  </li>
+                  <li>
+                    <a href="#developer-web-client-api" class="toc-h2 toc-link" data-title="api">API</a>
+                  </li>
+                  <li>
+                    <a href="#developer-web-client-webhooks" class="toc-h2 toc-link" data-title="webhooks">Webhooks</a>
+                  </li>
+                  <li>
+                    <a href="#developer-web-client-organization-settings" class="toc-h2 toc-link" data-title="organization-settings">Organization Settings</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#api-libraries" class="toc-h1 toc-link" data-title="api-libraries">API Libraries</a>
+          </li>
+          <li>
+            <a href="#which-endpoints-to-integrate" class="toc-h1 toc-link" data-title="which-endpoints-to-integrate">Which Endpoints To Integrate</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#which-endpoints-to-integrate-standard-flow-vs-edge-case" class="toc-h2 toc-link" data-title="standard-flow-vs-edge-case">Standard-Flow vs Edge-Case</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#writing-data" class="toc-h1 toc-link" data-title="writing-data">Writing Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#writing-data-the-write-back-loop" class="toc-h2 toc-link" data-title="the-write-back-loop">The Write-Back Loop</a>
+                  </li>
+                  <li>
+                    <a href="#writing-data-write-returns" class="toc-h2 toc-link" data-title="write-returns">Write Returns</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#null-values" class="toc-h1 toc-link" data-title="null-values">Null values</a>
+          </li>
+          <li>
+            <a href="#caveats" class="toc-h1 toc-link" data-title="caveats">Caveats</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#caveats-dates" class="toc-h2 toc-link" data-title="dates">Dates</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-paidat-and-chargedat" class="toc-h2 toc-link" data-title="paidat-and-chargedat">paidAt and chargedAt</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-prices" class="toc-h2 toc-link" data-title="prices">Prices</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-currency-codes" class="toc-h2 toc-link" data-title="currency-codes">Currency Codes</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-resource-ids" class="toc-h2 toc-link" data-title="resource-ids">Resource IDs</a>
+                  </li>
+                  <li>
+                    <a href="#caveats-country-codes" class="toc-h2 toc-link" data-title="country-codes">Country Codes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#errors-resource-not-supported" class="toc-h2 toc-link" data-title="resource-not-supported">Resource not supported</a>
+                  </li>
+                  <li>
+                    <a href="#errors-resource-not-implemented" class="toc-h2 toc-link" data-title="resource-not-implemented">Resource not implemented</a>
+                  </li>
+                  <li>
+                    <a href="#errors-no-results" class="toc-h2 toc-link" data-title="no-results">No results</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#guides" class="toc-h1 toc-link" data-title="guides">Guides</a>
+          </li>
+          <li>
+            <a href="#handling-bookings" class="toc-h1 toc-link" data-title="handling-bookings">Handling Bookings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#guides-creating-bookings" class="toc-h2 toc-link" data-title="creating-bookings">Creating Bookings</a>
+                  </li>
+                  <li>
+                    <a href="#guides-being-updated-about-new-bookings" class="toc-h2 toc-link" data-title="being-updated-about-new-bookings">Being Updated about New Bookings</a>
+                  </li>
+                  <li>
+                    <a href="#guides-childcount-vs-infantcount" class="toc-h2 toc-link" data-title="childcount-vs-infantcount">childCount vs infantCount</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#handling-bills" class="toc-h1 toc-link" data-title="handling-bills">Handling Bills</a>
+          </li>
+          <li>
+            <a href="#handling-guests" class="toc-h1 toc-link" data-title="handling-guests">Handling Guests</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#handling-guests-creating-guests-at-booking-creation" class="toc-h2 toc-link" data-title="creating-guests-at-booking-creation">Creating Guests at Booking Creation</a>
+                  </li>
+                  <li>
+                    <a href="#handling-guests-outside-of-bookings" class="toc-h2 toc-link" data-title="outside-of-bookings">Outside of Bookings</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#handling-rates" class="toc-h1 toc-link" data-title="handling-rates">Handling Rates</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#handling-rates-retrieving-all-rates" class="toc-h2 toc-link" data-title="retrieving-all-rates">Retrieving all Rates</a>
+                  </li>
+                  <li>
+                    <a href="#handling-rates-providing-a-rate-decision" class="toc-h2 toc-link" data-title="providing-a-rate-decision">Providing a Rate Decision</a>
+                  </li>
+                  <li>
+                    <a href="#handling-rates-what-is-a-base-price" class="toc-h2 toc-link" data-title="what-is-a-base-price">What is a base price?</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#handling-taxes" class="toc-h1 toc-link" data-title="handling-taxes">Handling Taxes</a>
+          </li>
+          <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="webhooks">Webhooks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#webhooks-webhook-types" class="toc-h2 toc-link" data-title="webhook-types">Webhook Types</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#reference" class="toc-h1 toc-link" data-title="reference">Reference</a>
+          </li>
+          <li>
+            <a href="#resources" class="toc-h1 toc-link" data-title="resources">Resources</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#reference-non-mapped-parameters" class="toc-h2 toc-link" data-title="non-mapped-parameters">Non-Mapped Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#reference-meta-element" class="toc-h2 toc-link" data-title="meta-element">Meta Element</a>
+                  </li>
+                  <li>
+                    <a href="#reference-pagination" class="toc-h2 toc-link" data-title="pagination">Pagination</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#address" class="toc-h1 toc-link" data-title="address">Address</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#address-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#allocation-group-block" class="toc-h1 toc-link" data-title="allocation-group-block">Allocation (Group Block)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#allocation-group-block-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#allocation-group-block-getting-all-allocations" class="toc-h2 toc-link" data-title="getting-all-allocations">Getting all Allocations</a>
+                  </li>
+                  <li>
+                    <a href="#allocation-group-block-getting-a-specific-allocation" class="toc-h2 toc-link" data-title="getting-a-specific-allocation">Getting a specific Allocation</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#allocation-restriction" class="toc-h1 toc-link" data-title="allocation-restriction">Allocation Restriction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#allocation-restriction-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#allocation-status" class="toc-h1 toc-link" data-title="allocation-status">Allocation Status</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#allocation-status-options" class="toc-h2 toc-link" data-title="options">Options</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#amount-description" class="toc-h1 toc-link" data-title="amount-description">Amount Description</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#amount-description-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#area" class="toc-h1 toc-link" data-title="area">Area</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#area-areas-vs-rooms" class="toc-h2 toc-link" data-title="areas-vs-rooms">Areas vs Rooms</a>
+                  </li>
+                  <li>
+                    <a href="#area-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#area-getting-a-list-of-areas" class="toc-h2 toc-link" data-title="getting-a-list-of-areas">Getting a list of Areas</a>
+                  </li>
+                  <li>
+                    <a href="#area-getting-a-specific-area" class="toc-h2 toc-link" data-title="getting-a-specific-area">Getting a specific Area</a>
+                  </li>
+                  <li>
+                    <a href="#area-changing-the-area-status-of-an-area" class="toc-h2 toc-link" data-title="changing-the-area-status-of-an-area">Changing the Area Status of an Area</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#area-status" class="toc-h1 toc-link" data-title="area-status">Area Status</a>
+          </li>
+          <li>
+            <a href="#area-types" class="toc-h1 toc-link" data-title="area-types">Area Types</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#area-types-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#area-types-get-all-area-types" class="toc-h2 toc-link" data-title="get-all-area-types">Get all Area Types</a>
+                  </li>
+                  <li>
+                    <a href="#area-types-get-a-specific-area-type" class="toc-h2 toc-link" data-title="get-a-specific-area-type">Get a specific Area Type</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#bill" class="toc-h1 toc-link" data-title="bill">Bill</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#bill-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#bill-get-a-single-bill" class="toc-h2 toc-link" data-title="get-a-single-bill">Get a single Bill</a>
+                  </li>
+                  <li>
+                    <a href="#bill-get-a-list-of-charges-for-the-bill" class="toc-h2 toc-link" data-title="get-a-list-of-charges-for-the-bill">Get a list of Charges for the Bill</a>
+                  </li>
+                  <li>
+                    <a href="#bill-get-a-single-charge" class="toc-h2 toc-link" data-title="get-a-single-charge">Get a single Charge</a>
+                  </li>
+                  <li>
+                    <a href="#bill-add-a-new-charge-to-a-bill" class="toc-h2 toc-link" data-title="add-a-new-charge-to-a-bill">Add a new Charge to a Bill</a>
+                  </li>
+                  <li>
+                    <a href="#bill-refund-a-charge-on-bill" class="toc-h2 toc-link" data-title="refund-a-charge-on-bill">Refund a Charge on Bill</a>
+                  </li>
+                  <li>
+                    <a href="#bill-get-a-list-of-payments-on-bill" class="toc-h2 toc-link" data-title="get-a-list-of-payments-on-bill">Get a list of Payments on Bill</a>
+                  </li>
+                  <li>
+                    <a href="#bill-get-a-single-payment" class="toc-h2 toc-link" data-title="get-a-single-payment">Get a single Payment</a>
+                  </li>
+                  <li>
+                    <a href="#bill-add-a-new-payment-to-a-bill" class="toc-h2 toc-link" data-title="add-a-new-payment-to-a-bill">Add a new Payment to a Bill</a>
+                  </li>
+                  <li>
+                    <a href="#bill-refund-a-payment" class="toc-h2 toc-link" data-title="refund-a-payment">Refund a Payment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#bill-status" class="toc-h1 toc-link" data-title="bill-status">Bill Status</a>
+          </li>
+          <li>
+            <a href="#billing-scheme" class="toc-h1 toc-link" data-title="billing-scheme">Billing Scheme</a>
+          </li>
+          <li>
+            <a href="#booking" class="toc-h1 toc-link" data-title="booking">Booking</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#booking-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#booking-get-a-list-of-bookings" class="toc-h2 toc-link" data-title="get-a-list-of-bookings">Get a List of Bookings</a>
+                  </li>
+                  <li>
+                    <a href="#booking-get-a-specific-booking" class="toc-h2 toc-link" data-title="get-a-specific-booking">Get a Specific Booking</a>
+                  </li>
+                  <li>
+                    <a href="#booking-create-a-booking" class="toc-h2 toc-link" data-title="create-a-booking">Create a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#booking-updating-a-booking" class="toc-h2 toc-link" data-title="updating-a-booking">Updating a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#booking-checking-in-a-booking" class="toc-h2 toc-link" data-title="checking-in-a-booking">Checking in a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#booking-checking-out-a-booking" class="toc-h2 toc-link" data-title="checking-out-a-booking">Checking out a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#booking-cancelling-a-booking" class="toc-h2 toc-link" data-title="cancelling-a-booking">Cancelling a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#booking-getting-all-guests-on-a-booking" class="toc-h2 toc-link" data-title="getting-all-guests-on-a-booking">Getting all Guests on a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#booking-getting-the-bill-for-a-booking" class="toc-h2 toc-link" data-title="getting-the-bill-for-a-booking">Getting the Bill for a Booking</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#booking-set" class="toc-h1 toc-link" data-title="booking-set">Booking Set</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#booking-set-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#booking-set-get-all-booking-sets" class="toc-h2 toc-link" data-title="get-all-booking-sets">Get all Booking Sets</a>
+                  </li>
+                  <li>
+                    <a href="#booking-set-get-specific-booking-set" class="toc-h2 toc-link" data-title="get-specific-booking-set">Get Specific Booking Set</a>
+                  </li>
+                  <li>
+                    <a href="#booking-set-create-a-booking-set" class="toc-h2 toc-link" data-title="create-a-booking-set">Create a Booking Set</a>
+                  </li>
+                  <li>
+                    <a href="#booking-set-change-a-booking-set" class="toc-h2 toc-link" data-title="change-a-booking-set">Change a Booking Set</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#booking-status" class="toc-h1 toc-link" data-title="booking-status">Booking Status</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#booking-status-options" class="toc-h2 toc-link" data-title="options">Options</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#charge" class="toc-h1 toc-link" data-title="charge">Charge</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#charge-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#contact" class="toc-h1 toc-link" data-title="contact">Contact</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#contact-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#extra" class="toc-h1 toc-link" data-title="extra">Extra</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#extra-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#extra-getting-a-list-of-extras" class="toc-h2 toc-link" data-title="getting-a-list-of-extras">Getting a list of Extras</a>
+                  </li>
+                  <li>
+                    <a href="#extra-getting-a-specific-extra-by-id" class="toc-h2 toc-link" data-title="getting-a-specific-extra-by-id">Getting a specific Extra by id</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#guest" class="toc-h1 toc-link" data-title="guest">Guest</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#guest-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#guest-getting-all-guests" class="toc-h2 toc-link" data-title="getting-all-guests">Getting all Guests</a>
+                  </li>
+                  <li>
+                    <a href="#guest-getting-a-specific-guest" class="toc-h2 toc-link" data-title="getting-a-specific-guest">Getting a specific Guest</a>
+                  </li>
+                  <li>
+                    <a href="#guest-creating-a-new-guest" class="toc-h2 toc-link" data-title="creating-a-new-guest">Creating a new Guest</a>
+                  </li>
+                  <li>
+                    <a href="#guest-updating-an-existing-guest" class="toc-h2 toc-link" data-title="updating-an-existing-guest">Updating an existing Guest</a>
+                  </li>
+                  <li>
+                    <a href="#guest-getting-a-guest-39-s-bill" class="toc-h2 toc-link" data-title="getting-a-guest-s-bill">Getting a Guest's Bill</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#guest-classification" class="toc-h1 toc-link" data-title="guest-classification">Guest Classification</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#guest-classification-read-options" class="toc-h2 toc-link" data-title="read-options">Read Options</a>
+                  </li>
+                  <li>
+                    <a href="#guest-classification-write-options" class="toc-h2 toc-link" data-title="write-options">Write Options</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#loyalty-program" class="toc-h1 toc-link" data-title="loyalty-program">Loyalty Program</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#loyalty-program-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#payment" class="toc-h1 toc-link" data-title="payment">Payment</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#payment-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#payment-type" class="toc-h1 toc-link" data-title="payment-type">Payment Type</a>
+          </li>
+          <li>
+            <a href="#rate-plan" class="toc-h1 toc-link" data-title="rate-plan">Rate Plan</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-plan-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#rate-plan-get-all-rate-plans" class="toc-h2 toc-link" data-title="get-all-rate-plans">Get all Rate Plans</a>
+                  </li>
+                  <li>
+                    <a href="#rate-plan-get-a-specific-rate-plan" class="toc-h2 toc-link" data-title="get-a-specific-rate-plan">Get a specific Rate Plan</a>
+                  </li>
+                  <li>
+                    <a href="#rate-plan-get-the-price-of-a-rate-plan" class="toc-h2 toc-link" data-title="get-the-price-of-a-rate-plan">Get the price of a Rate Plan</a>
+                  </li>
+                  <li>
+                    <a href="#rate-plan-make-a-pricing-decision-for-a-rate-plan" class="toc-h2 toc-link" data-title="make-a-pricing-decision-for-a-rate-plan">Make a pricing decision for a Rate Plan</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rate-price" class="toc-h1 toc-link" data-title="rate-price">Rate Price</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-price-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rate-restriction" class="toc-h1 toc-link" data-title="rate-restriction">Rate Restriction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-restriction-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rate-restriction-type" class="toc-h1 toc-link" data-title="rate-restriction-type">Rate Restriction Type</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-restriction-type-options" class="toc-h2 toc-link" data-title="options">Options</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rate-set" class="toc-h1 toc-link" data-title="rate-set">Rate Set</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-set-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+                  <li>
+                    <a href="#rate-set-get-all-rate-sets" class="toc-h2 toc-link" data-title="get-all-rate-sets">Get all Rate Sets</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rate-supplement" class="toc-h1 toc-link" data-title="rate-supplement">Rate Supplement</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-supplement-schema" class="toc-h2 toc-link" data-title="schema">Schema</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rate-supplement-type" class="toc-h1 toc-link" data-title="rate-supplement-type">Rate Supplement Type</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-supplement-type-options" class="toc-h2 toc-link" data-title="options">Options</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='general'>General</h1><h1 id='introduction'>Introduction</h1>
+<blockquote>
+<p>Official libraries for the Impala API are available in our <a href="/#api-libraries">API Libraries
+section</a>. Else you can directly connect to the API using the
+endpoints we provide.</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://api.getimpala.com
+</code></pre>
+<p>The Impala API is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank">REST</a>. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">cross-origin resource sharing</a>, allowing you to interact securely with our API from a client-side web application (though you should never expose your secret API key in any public website&#39;s client-side code). <a href="http://www.json.org/" target="_blank">JSON</a> is returned by all API responses, including errors, although our <a href="/#api-libraries">API libraries</a> convert responses to appropriate language-specific objects.</p>
+
+<p>To make the API as explorable as possible, accounts have test mode and live mode API keys. There is no &quot;switch&quot; for changing between modes, just use the appropriate key to perform a live or test transaction. Requests made with test mode credentials never hit real hotel data and instead provide a response from our own sandbox hotel, The Charleston.</p>
+<h1 id='getting-started'>Getting Started</h1>
+<p>To get started, you must first have a developer account. In order to set one up, please visit <a href="https://getimpala.com">https://getimpala.com</a> and click &quot;Sign Up&quot;. Once you have your credentials setup, visit <a href="https://developer.getimpala.com">https://developer.getimpala.com</a> and sign in.</p>
+<h2 id='getting-started-creating-an-application'>Creating an application</h2>
+<p>Once inside the developer web client, on the left hand side of the screen you&#39;ll have the option to create an application. The form prompts for two pieces of information; name, which is required and is used to help you identify your application, and description, which is optional but can be useful for storing extra information. Clicking &#39;Create&#39; will save the application and take you to the application details screen where you&#39;ll see your application&#39;s ID, this will be used when calling the API along with your API key.</p>
+<h1 id='developer-web-client'>Developer Web Client</h1><h2 id='developer-web-client-modes'>Modes</h2>
+<p><a href="images/screenshot_modes.png" target="_blank"><img src="images/screenshot_modes.png" title="Modes" alt="Modes" /></a></p>
+
+<p>There is a switch at the bottom of the sidebar that allows you to switch between Live and Test modes. There will be configuration that is specific for each of these, the screens you&#39;ll find this at are Hotels, API and Webhooks.</p>
+<h2 id='developer-web-client-details'>Details</h2>
+<p><img src="images/screenshot_details.png" title="Details" alt="Details" /></p>
+
+<p>From this screen, you can see your application&#39;s ID, you can also use this page to update your application&#39;s name and description.</p>
+<h2 id='developer-web-client-hotels'>Hotels</h2>
+<p><img src="images/screenshot_hotels.png" title="Hotels" alt="Hotels" /></p>
+
+<p>From this screen, you are able to see the list of hotels your application has access to. In the test mode, you are automatically given access to our sandbox hotel, The Charleston. Currently, in beta, to request access to a hotel you&#39;ll have to submit a form. As we move live, you&#39;ll be able to provide credentials directly and get instant access.</p>
+<h2 id='developer-web-client-api'>API</h2>
+<p><img src="images/screenshot_api.png" title="API" alt="API" /></p>
+
+<p>Here you can view your application&#39;s API key you&#39;ll need to use to connect to the Impala API. If you feel that your API key has been compromised, click the &#39;Regenerate Secret Key&#39; to regenerate your key. Remember, that the keys are different for each mode.</p>
+<h2 id='developer-web-client-webhooks'>Webhooks</h2>
+<p><img src="images/screenshot_webhooks.png" title="Webhooks" alt="Webhooks" /></p>
+
+<p>Here you can view your application&#39;s configured webhooks for each action. You can find out more about webhooks in the <a href="/#webhooks">webhooks</a> section. Remember, that the configuration is different for each mode.</p>
+<h2 id='developer-web-client-organization-settings'>Organization Settings</h2>
+<p><img src="images/screenshot_org_settings.png" title="Organization Settings" alt="Organization Settings" /></p>
+
+<p>On this screen, you&#39;ll be able to update your organization name and the users that have access to manage your organization&#39;s applications. You can add new team members by clicking the &#39;Add Team Member&#39; button in the top right. You can also manage users&#39; roles, they can either be:</p>
+
+<ul>
+<li><em>User</em>: can read organisation data as well as read and write (but not delete) application data, including regenerating API keys.</li>
+<li><em>Admin</em>: full access to read, write and delete any data, including the ability to create new users.</li>
+</ul>
+<h1 id='authentication'>Authentication</h1>
+<p>To provide the correct authentication details you will need to pass you application&#39;s API key as part of the <code>Authorization</code> header. For example: <code>Authorization: Bearer XXX</code> where <code>XXX</code> is your API key.</p>
+
+<p>You can find your app&#39;s API Key in the <a href="https://developer.getimpala.com" target="_blank">developer web client</a> in the application&#39;s relevant &quot;API&quot; section. This is your way of interacting with Impala&#39;s API.</p>
+
+<aside class="warning">
+  As it is sensitive data, please ensure you keep it safe, do not check it into your source control. To use it in your back end extract it into an environment variable, instead of hard coding it into the code.
+</aside>
+
+<aside class="notice">
+  If your app's API key has been compromised, use the 'Regenerate secret key' button in the developer web client to regenerate the key and then update your app to use the new key.
+</aside>
+<h1 id='api-libraries'>API Libraries</h1>
+<p>We are currently developing libraries for all major web languages. If you have a request for a specific language library, please email info@getimpala.com.</p>
+<h1 id='which-endpoints-to-integrate'>Which Endpoints To Integrate</h1>
+<p>The goal of Impala is to make it exceptionally easy to exchange data bi-directionally with Property Management Systems (PMS). Impala aims to be the last integration you will ever need and to minimize to the absolute extreme the amount of code changes you need to make to connect to different PMS.</p>
+
+<p>With that in mind these docs contain two distinct sections:</p>
+
+<ul>
+<li>Resources. A list of the API endpoints and the objects that compose the Impala API.</li>
+<li>Common Standard Flows. We&#39;ve provided a number of short guides to help you integrate more easily in certain common scenarios.</li>
+</ul>
+<h2 id='which-endpoints-to-integrate-standard-flow-vs-edge-case'>Standard-Flow vs Edge-Case</h2>
+<p>Not all PMS are built the same. They often take a very different view on how best to implement common hospitality concepts like &quot;Reservations&quot; and &quot;Rates&quot;. In order to make your life easier, Impala abstracts away as many of these problems as possible beneath the API.</p>
+
+<p>Where you see a <code>Standard-Flow</code> endpoint or the use cases describe something as <code>Standard-Flow</code>, we mean that this is the way you should do something as standard. Where we&#39;ve labelled something as <code>Edge-Case</code>, we mean that this endpoint should only be used as a special case where we couldn&#39;t abstract behaviour from a particularly deviant PMS.</p>
+
+<p>If you&#39;re integrating Impala from scratch, you should build your app using <code>Standard-Flow</code> endpoints and then only look at <code>Edge-Case</code> endpoints where the <code>Standard-Flow</code> endpoint lists a problem with a PMS that you also need to support.</p>
+<h1 id='writing-data'>Writing Data</h1>
+<p>One of the great things about Impala is the ability to not just read data from the PMS but additionally to write data back to it. There are a few things you should be aware of however before starting to write data.</p>
+<h2 id='writing-data-the-write-back-loop'>The Write-Back Loop</h2>
+<p>Because every PMS is different, Impala provides a caching layer between you and the PMS in order to serve the data that you need. When you&#39;re requesting data from the API the following scenarios are possible:</p>
+
+<ul>
+<li>We&#39;re passing your request on directly to the PMS. The data we return is therefore fresh.</li>
+<li>We&#39;re returning data we&#39;ve cached. The data we return is therefore potentially stale.</li>
+</ul>
+
+<p>We use the former wherever possible but it isn&#39;t always for a variety of reasons. For most use cases this is no problem and indeed you can see how recently data was refreshed via the <code>_meta</code> property.</p>
+
+<p>If you&#39;re writing data however, you should be aware that you may write a change that succeeds but that when you read back it doesn&#39;t seem like it has been successful. This is because we&#39;re serving cached data until we refresh.</p>
+
+<p><strong>The best practice</strong> here is to check if you receive a <code>200</code> or <code>204</code> status code from any write. For a <code>200</code>, you&#39;ll receive a copy of the altered object which you can store and serve locally. For <code>204</code> we are unable to return the altered object and so you should alter your object locally.</p>
+
+<p>If you absolutely need the altered copy and receive a <code>204</code> from the write, you should incorporate the relevant webhook to be updated as soon as we have the refreshed copy.</p>
+<h2 id='writing-data-write-returns'>Write Returns</h2>
+<p>Whenever you write data, we&#39;ll either return a copy of the new data with a <code>200</code> status code or a <code>204</code> status code without the new copy.</p>
+<h1 id='null-values'>Null values</h1>
+<p>All values returned by our API can be null.</p>
+
+<p>If a value is <code>null</code>, it is either because the PMS does not support it or it is in fact <code>null</code>.</p>
+
+<p>A value which can be an array will be <code>null</code> if the PMS doesn&#39;t support the value, and will be an empty array if it is supported by the PMS but there are no values in it.</p>
+
+<p>Similarly for objects, a value which can be an object will be <code>null</code> if not supported by PMS.  If supported by PMS it&#39;d be an object with its possible values all null.</p>
+<h1 id='caveats'>Caveats</h1><h2 id='caveats-dates'>Dates</h2>
+<p>The dates returned by the API are all represented in <a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">Unix time</a> in seconds.</p>
+
+<p>Where possible dates will be returned in UTC. In the event a PMS doesn&#39;t specify a timezone dates will be returned as they are received which is normally the timezone of the hotel.</p>
+
+<p>The dates required as inputs should be in the form <code>YYYY-MM-DD</code>.</p>
+<h2 id='caveats-paidat-and-chargedat'>paidAt and chargedAt</h2>
+<p>Please note that both are distinct from the concept of <code>createdAt</code>. Some PMS may treat <code>chargedAt</code>/<code>paidAt</code> as the same as when the record was created but not guaranteed (and we would argue shouldn&#39;t be).</p>
+<h2 id='caveats-prices'>Prices</h2>
+<p>All prices returned by the API are represented as integer amounts in a currency’s smallest unit. For example, $5 USD would be returned as 500 (i.e, 500 cents).</p>
+
+<p>For zero-decimal currencies, amounts will still be provided as an integer but without the need to divide by 100. For example, an amount of &yen;5 (JYP) would be returned as 5.</p>
+
+<p>The list of supported zero-decimal currencies is as follows: BIF, CLP, DJF, GNF, JPY, KMF, KRW, MGA, PYG, RWF, VND, VUV, XAF, XOF, XPF.</p>
+<h2 id='caveats-currency-codes'>Currency Codes</h2>
+<p>All currency codes conform to <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a></p>
+<h2 id='caveats-resource-ids'>Resource IDs</h2>
+<p>All resources provide an ID through the <code>id</code> property, when available.  The <code>id</code> property represents the unique identifier as provided by the PMS.</p>
+<h3>Composite IDs</h3>
+<p>In some cases we&#39;ll return a composite ID, consisting of several IDs needed to
+get to the PMS&#39; data, which won&#39;t directly map to an ID in the underlying PMS.</p>
+
+<p>In the case that any of these required parts of a composite ID aren&#39;t available,
+the returned ID will be null.</p>
+<h2 id='caveats-country-codes'>Country Codes</h2>
+<p>For codes that are defined by some standard the following caveat exists.</p>
+
+<p>We will try to match the value the PMS provides to a standardized code, however in the case we are not able to do so we will return the value provided by the PMS as-is.</p>
+
+<p>For example, <code>CH</code> may be converted to <code>CHE</code>, but <code>Suisse</code> would be returned as-is.  (Note this example may not reflect actual behaviour, it is merely an example.)</p>
+<h1 id='errors'>Errors</h1>
+<p>The Impala API uses the following error codes:</p>
+<h2 id='errors-resource-not-supported'>Resource not supported</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Found: the requested data is not provided by the Hotel's PMS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>In the event that a PMS doesn&#39;t support the data type being requested or for some other reason we don&#39;t have access to the data, the following JSON with an HTTP status code 404.</p>
+<h2 id='errors-resource-not-implemented'>Resource not implemented</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Found: the requested data hasn't been implemented for the Hotel's PMS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>In the event that the PMS <em>does</em> support the data type being requested, but we have not implemented it yet, the following JSON with an HTTP status code 404:</p>
+<h2 id='errors-no-results'>No results</h2>
+<p>If there are no errors, but the requested endpoint found no results then the request will answer with a status of 204 (No Content) and an empty body.</p>
+<h1 id='guides'>Guides</h1><h1 id='handling-bookings'>Handling Bookings</h1>
+<p>Reservation, stay, booking. The world of hospitality has a number of different words for very similar concepts. At Impala, we flatten this down to two objects:</p>
+
+<ul>
+<li><code>BookingSet</code>. This is the senior object and contains one or more <code>Bookings</code>.</li>
+<li><code>Booking</code>. This is the junior object and represents people staying in a room over concurrent nights.</li>
+</ul>
+
+<p>Imagine calling a hotel and asking to book a room for you and a room for your brother. You will have effectively created one <code>BookingSet</code> and two <code>Bookings</code> at the PMS.</p>
+<h2 id='guides-creating-bookings'>Creating Bookings</h2>
+<p>The right approach with Impala is always to create a <code>BookingSet</code> directly, even where there is only one room stay being created. The <code>POST /booking-set</code> endpoint is considered <code>Standard-Flow</code>.</p>
+
+<p>You can also create bookings via the <code>POST /booking</code> endpoint where the PMS supports it but this is considered <code>Edge-Case</code> and <strong>should only be used where the PMS does not support creating by <code>BookingSet</code></strong></p>
+<h2 id='guides-being-updated-about-new-bookings'>Being Updated about New Bookings</h2>
+<p>The best approach to being updated about new bookings is to use the relevant <code>Bookings</code> endpoints and webhooks. The reason for this is that new bookings can be added to a <code>BookingSet</code> and so you won&#39;t receive them if you&#39;re listening to the senior endpoint/webhook.</p>
+<h2 id='guides-childcount-vs-infantcount'>childCount vs infantCount</h2>
+<p>Most PMS provide only <code>adultCount</code> and <code>childCount</code> on a booking. Occasionally, however, a PMS will additionally provide an <code>infantCount</code>.</p>
+
+<p>If you don&#39;t care about this distinction then simply add <code>childCount</code> and <code>infantCount</code> together.</p>
+
+<p>When writing, Impala only supports <code>childCount</code>.</p>
+<h1 id='handling-bills'>Handling Bills</h1>
+<p>Where the bill lives and to whom it belongs is one of the most divergent features of a PMS. Some believe that the bill belongs to the <code>Guest</code>, some believe it&#39;s the <code>Booking</code> and some think it lives with the <code>Room</code>.</p>
+
+<p>At Impala you should access the bill via the <code>Booking</code>. Behind the scenes we will, wherever possible, retrieve the relevant bill no matter where it lives in the PMS.</p>
+
+<ul>
+<li>As standard, retrieve via <code>GET /booking/:id/bill</code>.</li>
+<li>We have <code>Edge-Case</code> endpoint support via <code>GET /guest/:id/bill</code> but this should only be used where the PMS does not support the Impala way of doing things. This is incredibly rare.</li>
+<li>For some PMS, you will have to supply an <code>extraId</code> with each charge.</li>
+</ul>
+
+<p>Handling payments &amp; charges happen directly on the bill record itself (e.g. <code>POST /bill/:id/charge</code>) and so there&#39;s no need to worry about if the PMS is an <code>Edge-Case</code> in this instance.</p>
+<h1 id='handling-guests'>Handling Guests</h1>
+<p>Normally, vendors will only need to handle guests as part of a booking. If this is the case then doing so with Impala is very easy.</p>
+<h2 id='handling-guests-creating-guests-at-booking-creation'>Creating Guests at Booking Creation</h2>
+<p>Creating a <code>BookingSet</code>, you will see there is a parameter <code>contact</code> and a parameter <code>guests</code>. This represents the distinction between the customer that booked the room and the guests that are staying in it (although this could be the same person).</p>
+
+<p>Where the <code>Contact</code> is of the type <code>guest</code>, you do not have to include the guest again in the <code>guests</code> array, it will be created automatically.</p>
+
+<p>For all other guests, you can include them within the <code>guests</code> array (or ids of existing guests that are listed at the PMS).</p>
+<h2 id='handling-guests-outside-of-bookings'>Outside of Bookings</h2>
+<p>If you require more CRM-like functionality, then you may need to deal with guests outside of the context of a booking.</p>
+
+<ul>
+<li>You can manage guests (Read, Update and Delete) via the <code>/guest/:id</code> endpoint (with the relevant HTTP method).</li>
+<li>To retrieve an initial set of guests listed at the PMS you can use the <a href="/#guest-getting-all-guests">Get all Guests</a> endpoint where supported. Otherwise you should cycle through bookings and retrieve guests.</li>
+</ul>
+<h1 id='handling-rates'>Handling Rates</h1>
+<p>Much like bookings, every PMS deals with and thinks about rates in a slightly different way (rate groups, rate sets, rates, rate plans, rate prices etc). At Impala we have two main rate objects:</p>
+
+<ul>
+<li><code>RatePlan</code>. This is the main container for representing what people would typically think of as BAR.</li>
+<li><code>RatePrice</code>. This is a <code>RatePlan</code> when applied to an <code>AreaType</code> on a particular night.</li>
+</ul>
+
+<p>There is also another object <code>RateSet</code> which is a container of one or more <code>RatePlans</code> that share some commonality. <strong>This is considered <code>Edge-Case</code> and only exists to support certain PMS</strong>.</p>
+<h2 id='handling-rates-retrieving-all-rates'>Retrieving all Rates</h2>
+<p>As an RMS, often you want to retrieve the different rates that are used at a property. We suggest doing this by using <code>GET /rate-plan</code>. This will return all rate plans at the property. You should only use <code>GET /rate-set</code> when you are using a PMS that has a higher level container (listed in the <code>RatePlan</code> resource).</p>
+<h2 id='handling-rates-providing-a-rate-decision'>Providing a Rate Decision</h2>
+<p>As standard (unless we&#39;ve built an adapter), you will provide rate decisions using the <code>PUT /rate-plan/:id/price</code> endpoint. This will have one of two effects at the PMS:</p>
+
+<ul>
+<li>If an <code>areaTypeId</code> is supplied, a single override will be applied for the Area Type at that Rate Plan on the night supplied.</li>
+<li>If no <code>areaTypeId</code> is supplied, an adjustment to the base price for that night at that Rate Plan will be made (where supported).</li>
+</ul>
+<h2 id='handling-rates-what-is-a-base-price'>What is a base price?</h2>
+<p>Some PMS have <a href="/#rate-plan">Rate Plans</a> that provide a price as standard and then derive <a href="/#rate-price">Rate Prices</a> as either a percentage of or addition to that base price.</p>
+<h1 id='handling-taxes'>Handling Taxes</h1>
+<p>For resources like <a href="/#charge">Charges</a>, <a href="/#booking">Bookings</a> and <a href="/#extra">Extras</a> you will see the schema describes a number of financial properties:</p>
+
+<ul>
+<li><code>grossAmount</code></li>
+<li><code>netAmount</code></li>
+<li><code>taxAmount</code></li>
+<li><code>taxRate</code></li>
+</ul>
+
+<p>On reading, we only guarantee <code>grossAmount</code> will be present. On writing, we only guarantee that the <code>grossAmount</code> can be written.</p>
+
+<p>Literally every PMS deals with fiscalization differently and so if you&#39;re building something that requires reading a very deep connection to the tax details of a charge, you can inspect the _extras field that comes with a charge. This is all the un-normalizable data we receive from the PMS and should contain further details.</p>
+<h1 id='webhooks'>Webhooks</h1>
+<blockquote>
+<p>To be updated</p>
+</blockquote>
+
+<p>Webhooks allow you to subscribe to changes in hotel <a href="/#resources">resources</a> data and receive details of the change to a URL of your choice. Webhooks can be added on a per application basis from within the <a href="https://developer.getimpala.com" target="_blank">developer web client</a>.</p>
+
+<p>The <code>User-Agent</code> header for the requests will have a prefix of <code>Impala-Hookshot/</code>.</p>
+<h3>Not realtime</h3>
+<p>Webhooks are not realtime.  We fetch data from the PMS approximately every 15 minutes (although not guaranteed), at which point we detect any difference.  If there is, then the webhook is sent.</p>
+
+<p>Do not depend on a webhook being fired <em>instantly</em> when something happens in the PMS.</p>
+<h3>Fetch range</h3>
+<p>Where data may have a time associated with it (e.g. Booking, BookingSet etc), webhooks will only report on changes 365 in the past (although infinitely in the future).</p>
+
+<p>If you have a requirement for detecting differences outside that range, you should poll the relevant API directly intermittently.</p>
+
+<aside class="warning">
+  Some PMS place limitations on the fetch range we can report webhooks from. For a list of those PMS, please see caveats.
+</aside>
+<h2 id='webhooks-webhook-types'>Webhook Types</h2>
+<p>To be updated.</p>
+<h1 id='reference'>Reference</h1><h1 id='resources'>Resources</h1>
+<p>A &#39;resource&#39; is a particular set of data available through the API. Each resource has a set of methods, specific to the resource type, for interacting with the data.</p>
+<h2 id='reference-non-mapped-parameters'>Non-Mapped Parameters</h2>
+<blockquote>
+<p>Imagine a record that we normalized that had a name parameter only but an underlying PMS also provided a &quot;foo&quot; parameter as well. It&#39;s the only PMS that does so so we haven&#39;t mapped it to our domain. Instead we provide it in extras.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Impala normalizes the data that we receive from the PMS into the fields described in each resource. Different PMS however sometimes support further additional fields (for instance, one PMS might return a &quot;first initial&quot; field on the guest resource).</p>
+
+<p>Where this is true and we haven&#39;t explicitly normalized the data, we provide it in an object on each resource called <code>_extras</code>.</p>
+
+<p>We can make no guarantees about what is contained within the <code>_extras</code> object or of what type they will be, we simply provide them as they arrive from the PMS.</p>
+<h2 id='reference-meta-element'>Meta Element</h2>
+<p>The <code>_meta</code> element returned includes information about the object you&#39;re fetching such as the last time that the object was refreshed and the PMS that it comes from.</p>
+<h2 id='reference-pagination'>Pagination</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>An example response with the <code>?include=metadata</code> parameter not set</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Link: &lt;https://api.getimpala.com/v1/hotel/:hotelId/booking?page=2&amp;per_page=2&amp;include=metadata&gt;; rel="self", &lt;https://api.getimpala.com/v1/hotel/:hotelId/booking?page=1&amp;per_page=2&amp;include=metadata&gt;; rel="first", &lt;https://api.getimpala.com/v1/hotel/:hotelId/booking?page=50&amp;per_page=2&amp;include=metadata&gt;; rel="last", &lt;https://api.getimpala.com/v1/hotel/:hotelId/booking?page=1&amp;per_page=2&amp;include=metadata&gt;; rel="previous", &lt;https://api.getimpala.com/v1/hotel/:hotelId/booking?page=3&amp;per_page=2&amp;include=metadata&gt;; rel="next"
+</code></pre>
+<blockquote>
+<p>An example of the Link header always returned</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.staging.getimpala.com/v1/hotel/0ae2c7f3-d191-43a3-a83f-bc844aad9ec1/booking?page=2&amp;per_page=10&amp;include=metadata"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.staging.getimpala.com/v1/hotel/0ae2c7f3-d191-43a3-a83f-bc844aad9ec1/booking?page=1&amp;per_page=10&amp;include=metadata"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.staging.getimpala.com/v1/hotel/0ae2c7f3-d191-43a3-a83f-bc844aad9ec1/booking?page=10&amp;per_page=10&amp;include=metadata"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.staging.getimpala.com/v1/hotel/0ae2c7f3-d191-43a3-a83f-bc844aad9ec1/booking?page=1&amp;per_page=10&amp;include=metadata"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.staging.getimpala.com/v1/hotel/0ae2c7f3-d191-43a3-a83f-bc844aad9ec1/booking?page=3&amp;per_page=10&amp;include=metadata"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>An example response with the <code>?include=metadata</code> parameter set</p>
+</blockquote>
+
+<p>The index routes of all resources such as <code>/booking</code> or <code>/rate-plan</code> are paginated by default. You receive an object with a <code>records</code> array and an option <code>_metadata</code> object. Below we have outlined how it works.</p>
+<h3>Link</h3>
+<p>We provide links in the Link header for following relationships:</p>
+
+<ul>
+<li><code>self</code> - a link that will return the current page of results with your current parameters</li>
+<li><code>first</code> - a link that will return the first page of results with your current parameters</li>
+<li><code>last</code> - a link that will return the last page of results with your current parameters</li>
+<li><code>previous</code> - a link that will return the previous page of results with your current parameters</li>
+<li><code>next</code> - a link that will return the next page of results with your current parameters</li>
+</ul>
+<h3>Parameters</h3><h4 id='page'>page</h4>
+<p>This parameter will set the page you are currently on, it defaults to 1.</p>
+
+<p>You&#39;ll be returned an error if you try to view a page outside the bounds allowed:</p>
+
+<ul>
+<li>less than 1</li>
+<li>higher than the total number of pages</li>
+</ul>
+<h4 id='per_page'>per_page</h4>
+<p>This parameter will set the number of results you&#39;ll be returned per page, it defaults to 25.</p>
+
+<p>You&#39;ll be returned an error if you try to pass a value outside the bounds allowed:</p>
+
+<ul>
+<li>less than 0</li>
+</ul>
+
+<p>If you pass a <code>per_page</code> parameter of 0 you be returned all results, where possible.</p>
+<h4 id='include'>include</h4>
+<p>This parameter only accepts one option and that is <code>metadata</code>, if present it will return a <code>_metadata</code> object with the following schema:</p>
+<pre class="highlight plaintext"><code>_metadata {
+  page: Number,
+  per_page: Number,
+  page_count: Number,
+  total_count: Number,
+  links: {
+    self: String,
+    first: String,
+    last: String,
+    previous: String | null,
+    next: String | null,
+  },
+}
+</code></pre>
+<blockquote>
+<p><code>null</code> for previous or next, means your either at the first or last page or there is no other page to go to.</p>
+</blockquote>
+
+<p>Below, we&#39;ve outlined what each property means:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Property Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">the current page you are on</td>
+</tr>
+<tr>
+<td style="text-align: left">per_page</td>
+<td style="text-align: left">the number of records per page</td>
+</tr>
+<tr>
+<td style="text-align: left">page_count</td>
+<td style="text-align: left">the total number of pages</td>
+</tr>
+<tr>
+<td style="text-align: left">total_count</td>
+<td style="text-align: left">the total number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">links</td>
+<td style="text-align: left">the object of links mapping directly to the header Link</td>
+</tr>
+<tr>
+<td style="text-align: left">links.self</td>
+<td style="text-align: left">the link to the current page of records</td>
+</tr>
+<tr>
+<td style="text-align: left">links.first</td>
+<td style="text-align: left">the link to the first page of records</td>
+</tr>
+<tr>
+<td style="text-align: left">links.last</td>
+<td style="text-align: left">the link to the last page of records</td>
+</tr>
+<tr>
+<td style="text-align: left">links.previous</td>
+<td style="text-align: left">the link to the previous page of records</td>
+</tr>
+<tr>
+<td style="text-align: left">links.next</td>
+<td style="text-align: left">the link to the next page of records</td>
+</tr>
+</tbody></table>
+<h1 id='address'>Address</h1>
+<p>Any physical address reported by Impala.</p>
+<h2 id='address-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>line1</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>line2</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>postalCode</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>countryCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-country-codes">country codes</a></td>
+</tr>
+</tbody></table>
+<h1 id='allocation-group-block'>Allocation (Group Block)</h1>
+<p>An allocation or group block is a set of area types that have been blocked for booking and allocated to certain <a href="/#contact">Contact</a>.</p>
+
+<p>Allocations are typically only supported by larger PMS.</p>
+<h2 id='allocation-group-block-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a href="/#contact">Contact</a></td>
+<td></td>
+</tr>
+<tr>
+<td>cutoffDate</td>
+<td>timestamp</td>
+<td>The date on which the <a href="/#allocation">Allocation</a> will be released</td>
+</tr>
+<tr>
+<td>cutoffType</td>
+<td>ABSOLUTE or DAY_BY_DAY</td>
+<td>See below</td>
+</tr>
+<tr>
+<td>allocationRestrictions</td>
+<td>array of <a href="/#allocation-restrictions">AllocationRestrictions</a></td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="/#allocation-status">AllocationStatus</a></td>
+<td>Where supported</td>
+</tr>
+</tbody></table>
+
+<p>When <code>cutoffType</code> is <code>ABSOLUTE</code>, the number of areas listed in the restriction is total. When it is <code>DAY_BY_DAY</code> that means that the number of areas referred to in the restriction should be reduced every day (evenly).</p>
+<h2 id='allocation-group-block-getting-all-allocations'>Getting all Allocations</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to get all <a href="/#allocation">Allocations</a> at the property.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /allocation</code></p>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#allocation">Allocations</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='allocation-group-block-getting-a-specific-allocation'>Getting a specific Allocation</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve a specific <a href="/#allocation">Allocation</a>.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /allocation/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the allocation to retrieve</td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#allocation">Allocation</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='allocation-restriction'>Allocation Restriction</h1>
+<p>An <a href="/#allocation-restriction">Allocation Restriction</a> lists the areas and rates to which an <a href="/#allocation">Allocation</a> applies.</p>
+<h2 id='allocation-restriction-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>areaTypeId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>ratePlanId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>numberOfAreas</td>
+<td>integer</td>
+<td>See below</td>
+</tr>
+</tbody></table>
+
+<p><code>numberOfAreas</code> refers to the total number of areas that were allocated for the allocation when the allocation was created.</p>
+
+<p>Impala does not reduce the number of areas available for you when the <code>cutoffType</code> of the parent <a href="/#allocation">Allocation</a> is <code>DAY_BY_DAY</code> (or <code>ABSOLUTE</code> but you wouldn&#39;t need to reduce the number of areas anyway).</p>
+<h1 id='allocation-status'>Allocation Status</h1>
+<p>An <a href="/#allocation-status">Allocation Status</a> typically represents how concrete an allocation is.</p>
+<h2 id='allocation-status-options'>Options</h2>
+<ul>
+<li>CANCELLED</li>
+<li>DEFINITE</li>
+<li>LOST_OR_DECLINED</li>
+<li>PROSPECT</li>
+<li>TENTATIVE</li>
+</ul>
+<h1 id='amount-description'>Amount Description</h1>
+<p>An <a href="/#amount-description">Amount Description</a> is a description of a value which could either be fixed, derivative or supplementary to another <a href="/#amount-description">Amount Description</a>.</p>
+<h2 id='amount-description-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>AmountDescriptionType</td>
+<td>See below.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>float</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>AmountDescriptionType</h3>
+<p>Either:</p>
+
+<ul>
+<li><code>ABSOLUTE</code>. For a fixed cost.</li>
+<li><code>ADDITIONAL</code>. For a cost that is in addition to it&#39;s parent.</li>
+<li><code>PERCENTAGE</code>. (0 &gt; x &gt; 1). For a cost that is a percentage of it&#39;s parent.</li>
+</ul>
+<h1 id='area'>Area</h1>
+<p>An <a href="/#area">Area</a> is an object in the hotel that can be rented out (usually a room or bed).</p>
+<h2 id='area-areas-vs-rooms'>Areas vs Rooms</h2>
+<p>Impala, like the PMS it abstracts, supports multiple different types of accommodation. In some instances, such as in a hostel, accommodation providers are not just selling &quot;rooms&quot; but additionally other inventory.</p>
+
+<p>As such Impala uses the concept of an <a href="/#area">Area</a> rather than a Room and an <a href="/#area-type">AreaType</a> rather than an Room Type.</p>
+
+<p>Typically there&#39;s no complexity in the implementation (hostels simply have more <code>AreaTypes</code>). However, you should take note where the hotel/hostel composes rentable areas from other rentable areas. This can happen in the case of <code>Virtual Suites</code> (a suite made up of, for example, a <code>Double Room</code> and a <code>Single Room</code>). It can also happen if the hostel rents out whole dormitories as well as the beds inside.</p>
+<h2 id='area-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>areaTypeId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="/#area-status">AreaStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='area-getting-a-list-of-areas'>Getting a list of Areas</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to retrieve a list of areas at the property.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /area</code></p>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#areas">Areas</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='area-getting-a-specific-area'>Getting a specific Area</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to retrieve a specific area at the property.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /area/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#area">Area</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/area-schema">Area</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='area-changing-the-area-status-of-an-area'>Changing the Area Status of an Area</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to update the <a href="/#area-status">Area Status</a> of an Area.</p>
+<h3>HTTP Request</h3>
+<p><code>PUT /area/:id/status</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#area">Area</a></td>
+</tr>
+</tbody></table>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td><a href="/#area-status">Area Status</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<p>An object of type <a href="/#areas">Area</a></p>
+<h1 id='area-status'>Area Status</h1>
+<p>An <a href="/#area-status">Area Status</a> is a string with the following possible values:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Write Support</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CLEAN</td>
+<td></td>
+<td>All PMS</td>
+</tr>
+<tr>
+<td>DIRTY</td>
+<td></td>
+<td>All PMS</td>
+</tr>
+<tr>
+<td>INSPECTED</td>
+<td>The area is clean and inspected</td>
+<td></td>
+</tr>
+<tr>
+<td>OUT_OF_SERVICE</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OUT_OF_ORDER</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OUT_OF_INVENTORY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>INDETERMINATE</td>
+<td>The state of the room can&#39;t be determined</td>
+<td></td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>The PMS has supplied a fringe value</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+  When writing an Area Status, not all PMS support all possible values. You should write CLEAN or DIRTY where possible for widest support.
+</aside>
+<h1 id='area-types'>Area Types</h1><h2 id='area-types-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>maxOccupancy</td>
+<td>integer</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='area-types-get-all-area-types'>Get all Area Types</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to retrieve a list of all area types at the property.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /area-type</code></p>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#area-type-schema">Area Types</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='area-types-get-a-specific-area-type'>Get a specific Area Type</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to retrieve a single area type.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /area-type/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#area-type-schema">AreaType</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='bill'>Bill</h1>
+<p>A <a href="/#bill">Bill</a> is a container of <a href="/#charge">Charges</a> and <a href="/#payment">Payments</a>.</p>
+<h2 id='bill-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>reference</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>dueDate</td>
+<td>Unix timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>issuedDate</td>
+<td>Unix timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>charges</td>
+<td>array of <a href="/#charges">Charges</a></td>
+<td></td>
+</tr>
+<tr>
+<td>payments</td>
+<td>array of <a href="/#payments">Payments</a></td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="/#bill-status">BillStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td>isPaid</td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>bookingId</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>guestId</td>
+<td>integer</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-get-a-single-bill'>Get a single Bill</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve a specific bill.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /bill/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#bill-schema">Bill</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-get-a-list-of-charges-for-the-bill'>Get a list of Charges for the Bill</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve all the <a href="/#charge">Charges</a> on the <a href="/#bill">Bill</a>.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /bill/:id/charge</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#charge-schema">Charges</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-get-a-single-charge'>Get a single Charge</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve a specific <a href="/#charge">Charge</a> on a <a href="/#bill">Bill</a>.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /bill/:id/charge/:chargeId</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+<tr>
+<td>chargeId</td>
+<td>string</td>
+<td>The ID of the <a href="/#charge">Charge</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#charge-schema">Charge</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-add-a-new-charge-to-a-bill'>Add a new Charge to a Bill</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to add a new <a href="/#charge">Charge</a> to a <a href="/#bill">Bill</a>.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /bill/:id/charge</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+</tbody></table>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>grossAmount</td>
+<td>integer</td>
+<td>See <a href="/#handling-taxes">handling taxes</a></td>
+</tr>
+<tr>
+<td>taxRate</td>
+<td>string</td>
+<td>Fractional decimal (0 &gt; x &gt; 1.0)</td>
+</tr>
+<tr>
+<td>currencyCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-currency-codes">currencies</a></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>chargedAt</td>
+<td>Unix timestamp</td>
+<td>See <a href="/#caveats">dates</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#charge">Charge</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-refund-a-charge-on-bill'>Refund a Charge on Bill</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to refund or void a <a href="/#charge">Charge</a>.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /bill/:id/charge/:chargeId/refund</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The id of the <a href="/#bill">Bill</a></td>
+</tr>
+<tr>
+<td>chargeId</td>
+<td>string</td>
+<td>The id of the <a href="/#charge">Charge</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#charge">Charge</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-get-a-list-of-payments-on-bill'>Get a list of Payments on Bill</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to get a list of payments related to a bill.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /bill/:id/payment</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#payments">Payments</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-get-a-single-payment'>Get a single Payment</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve a single payment.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /bill/:id/payment/:paymentId</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+<tr>
+<td>paymentId</td>
+<td>string</td>
+<td>The ID of the <a href="/#payment">Payment</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#payment">Payment</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-add-a-new-payment-to-a-bill'>Add a new Payment to a Bill</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to add a new payment to a bill.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /bill/:id/payment</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+</tbody></table>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Information about the payment type or other aspect of payment</td>
+</tr>
+<tr>
+<td>grossAmount</td>
+<td>integer</td>
+<td>The amount paid</td>
+</tr>
+<tr>
+<td>currencyCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-prices">prices</a></td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>isVoid</td>
+<td>boolean</td>
+<td>Extremely limited PMS support, means void payment rather than a &quot;refund&quot;</td>
+</tr>
+<tr>
+<td>paymentType</td>
+<td><a href="/#payment-type">PaymentType</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#payment">Payment</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='bill-refund-a-payment'>Refund a Payment</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to refund a payment.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /bill/:id/payment/:paymentId/refund</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#bill">Bill</a></td>
+</tr>
+<tr>
+<td>paymentId</td>
+<td>string</td>
+<td>The id of the <a href="/#payment">Payment</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<p>A <code>204</code> status will be returned on success.</p>
+<h1 id='bill-status'>Bill Status</h1>
+<p>A <a href="/#bill-status">Bill Status</a> is a string with the following possible values:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Write Support</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>OPEN</td>
+<td>The bill is open</td>
+<td>All PMS</td>
+</tr>
+<tr>
+<td>CLOSED</td>
+<td>The bill is closed</td>
+<td>All PMS</td>
+</tr>
+</tbody></table>
+<h1 id='billing-scheme'>Billing Scheme</h1>
+<p><a href="/#billing-scheme">BillingScheme</a> is a string that has one of the following values:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ONCE</td>
+<td>Only chargeable once.</td>
+</tr>
+<tr>
+<td>PER_TIME</td>
+<td>Chargeable multiple times based on a time unit.</td>
+</tr>
+<tr>
+<td>PER_TIME_PER_PERSON</td>
+<td>Chargeable multiple times based on the number of users and the number of time units.</td>
+</tr>
+<tr>
+<td>PER_AREA</td>
+<td>Chargeable based on the numbers of areas.</td>
+</tr>
+<tr>
+<td>PER_TIME_PER_AREA</td>
+<td>Chargeable based on the number of time units per area.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+  When writing (rather than reading), please note that not all [BillingSchemes](/#billing-scheme) are supported by all PMS.
+</aside>
+<h1 id='booking'>Booking</h1>
+<p>A <a href="/#booking">Booking</a> represents a booking or reservation at a hotel.</p>
+<h2 id='booking-schema'>Schema</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XJKRSJG"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bookingSetId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"channelManager"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyAllocator"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530284905</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"areaId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"requestedAreaTypeId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"adultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"childCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"infantCount"</span><span class="p">:</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cancelledAt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025707</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>reference</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>bookingSetId</td>
+<td>string</td>
+<td>The ID of the <a href="/#booking-set">BookingSet</a></td>
+</tr>
+<tr>
+<td>ratePlanId</td>
+<td>string</td>
+<td>The ID of the <a href="/#rate-plan">RatePlan</a> the booking was booked under</td>
+</tr>
+<tr>
+<td>channelManager</td>
+<td>string</td>
+<td>The name of the channel manager that provided the booking</td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="/#booking-status">BookingStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td>origin</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>timestamp</td>
+<td>The start of the booking. See <a href="/#caveats-dates">dates</a>.</td>
+</tr>
+<tr>
+<td>end</td>
+<td>timestamp</td>
+<td>The end of the booking. See <a href="/#caveats-dates">dates</a>.</td>
+</tr>
+<tr>
+<td>areaId</td>
+<td>string</td>
+<td>The ID of the <a href="/#area">Area</a></td>
+</tr>
+<tr>
+<td>requestedAreaTypeId</td>
+<td>string</td>
+<td>The initial requested type</td>
+</tr>
+<tr>
+<td>adultCount</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>childCount</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>infantCount</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>netAmount</td>
+<td>integer</td>
+<td>Amount before tax</td>
+</tr>
+<tr>
+<td>grossAmount</td>
+<td>integer</td>
+<td>Amount after tax</td>
+</tr>
+<tr>
+<td>taxAmount</td>
+<td>integer</td>
+<td>Tax expressed as an amount</td>
+</tr>
+<tr>
+<td>taxRate</td>
+<td>string</td>
+<td>Tax expressed as a fractional decimal (0 &gt; x &gt; 1.0)</td>
+</tr>
+<tr>
+<td>currencyCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-currency-codes">currencies</a></td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a href="/#contact">Contact</a></td>
+<td></td>
+</tr>
+<tr>
+<td>guestsIds</td>
+<td>array of strings</td>
+<td>The ID of the <a href="/#guests">Guests</a></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>The date that the booking was created. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>cancelledAt</td>
+<td>timestamp</td>
+<td>The date that the booking  was cancelled. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>The time the booking was last updated. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h3>Contact Mirroring</h3>
+<p>Where the <code>contact</code> field is a guest, you will see the same guest in the <code>guestIds</code> field.</p>
+<h2 id='booking-get-a-list-of-bookings'>Get a List of Bookings</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIRIRM"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"guestIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025707</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use when trying to retrieve bookings between certain dates or according to certain criteria. Can also be used for an initial setup.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /booking</code></p>
+<h3>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td>date</td>
+<td>The earliest any returned booking should start. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>date</td>
+<td>The latest any returned booking should end. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>checkedInAfter</td>
+<td>date</td>
+<td>The earliest any booking returned should have been checked-in. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>checkedInBefore</td>
+<td>date</td>
+<td>The latest any booking returned should have checked-in. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>checkedOutAfter</td>
+<td>date</td>
+<td>The earliest any booking returned should have been checked-out. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>checkedOutBefore</td>
+<td>date</td>
+<td>The latest any booking returned should have checked-out. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+
+<p>By default the API will return +/- 7 days. The maximum historic return (without contacting us) is 365 days in the past. There is no maximum return.</p>
+
+<aside class="warning">
+  Each PMS has different restrictions. We don't normalize so as not to penalize Impala users where smaller PMS put significant restrictions in place. Using +/- 7 days is typically safe.
+</aside>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#booking-schema">Bookings</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='booking-get-a-specific-booking'>Get a Specific Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIRIRM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025707</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use when trying to retrieve a specific booking.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /booking/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The id of the booking you&#39;re trying to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='booking-create-a-booking'>Create a Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIRIRM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">152400000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"areaTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ratePlanId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"adultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"childCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIRIRM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">152400000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"requestedAreaTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025707</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Edge-Case</code></p>
+
+<p>Should <strong>only</strong> be used to create a <code>Booking</code> when the PMS does not support creating via <code>BookingSet</code>.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /booking</code></p>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>timestamp</td>
+<td>The start of the booking. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>end</td>
+<td>timestamp</td>
+<td>The end of the booking. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>areaTypeId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>ratePlanId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>guests</td>
+<td>array of <a href="/#guests">Guests</a> or Guest Ids</td>
+<td>Either can be provided</td>
+</tr>
+<tr>
+<td>adultCount</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>childCount</td>
+<td>Number</td>
+<td></td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a href="/#contact">Contact</a></td>
+<td></td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#booking-schema">Booking</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='booking-updating-a-booking'>Updating a Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW_REFERENCE"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW_REFERENCE"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">152400000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"requestedAreaTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520025707</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Should be used to update information on a booking.</p>
+<h3>HTTP Request</h3>
+<p><code>PATCH /booking/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>ID of the <a href="/#booking">Booking</a> to edit.</td>
+</tr>
+</tbody></table>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>timestamp</td>
+<td>The start of the booking. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>end</td>
+<td>timestamp</td>
+<td>The end of the booking. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>areaTypeId</td>
+<td>string</td>
+<td>Changes the requestedAreaTypeId.</td>
+</tr>
+<tr>
+<td>ratePlanId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>guests</td>
+<td>array of <a href="/#guests">Guests</a> or Guest Ids</td>
+<td>Either can be provided. Will replace all guests on the record.</td>
+</tr>
+<tr>
+<td>adultCount</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>childCount</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a href="/#contact">Contact</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>string</td>
+<td>Will replace the notes.</td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#booking-schema">Booking</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='booking-checking-in-a-booking'>Checking in a Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to check in a booking.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /booking/:id/check-in</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>ID of the <a href="/#booking">Booking</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Returns an object of Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#booking-schema">Booking</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='booking-checking-out-a-booking'>Checking out a Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to check out a booking.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /booking/:id/check-out</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>ID of the <a href="/#booking">Booking</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#booking-schema">Booking</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='booking-cancelling-a-booking'>Cancelling a Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to cancel a booking.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /booking/:id/cancel</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>ID of the <a href="/#booking">Booking</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#booking-schema">Booking</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='booking-getting-all-guests-on-a-booking'>Getting all Guests on a Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to retrieve a list of all guests for a booking</p>
+<h3>HTTP Request</h3>
+<p><code>GET /booking/:id/guests</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>ID of the <a href="/#booking">Booking</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#guest-schema">Guests</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='booking-getting-the-bill-for-a-booking'>Getting the Bill for a Booking</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to retrieve a list of bills for a booking</p>
+<h3>HTTP Request</h3>
+<p><code>GET /booking/:id/bill</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>ID of the <a href="/#booking">Booking</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#bill-schema">Bills</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='booking-set'>Booking Set</h1>
+<p>A <a href="/#booking-set">Booking Set</a> represents the container for one or more bookings. This container has certain metadata relevant to the set of bookings.</p>
+<h2 id='booking-set-schema'>Schema</h2>
+<blockquote>
+<p>Sample Object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XFKJRJFF"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530284905</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guest"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"bookingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">456</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>parentId</td>
+<td>string</td>
+<td>Some PMS support nested <code>BookingSets</code>.</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>timestamp</td>
+<td>The start of the bookings in the set. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>end</td>
+<td>timestamp</td>
+<td>The end of the bookings in the set. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a href="/#contact">Contact</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bookingIds</td>
+<td>array of strings</td>
+<td>The IDs of <a href="/#booking">Bookings</a> within the Set</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>The date that the booking set was created. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>The time the booking set was last updated. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h2 id='booking-set-get-all-booking-sets'>Get all Booking Sets</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XFKJRJFF"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530284905</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"guests"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"bookingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">456</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use when trying to retrieve bookings for the first time where the PMS supports. Do not use to poll what new bookings have been created. (<a href="/#handling-bookings">see Handling Bookings</a>)</p>
+<h3>HTTP request</h3>
+<p><code>GET /booking-set</code></p>
+<h3>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td>date</td>
+<td>The earliest record you wish to return. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>date</td>
+<td>The latest record you wish to return. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h2 id='booking-set-get-specific-booking-set'>Get Specific Booking Set</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XFKJRJFF"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530284905</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"bookingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">456</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Return a Booking Set with a specific ID</p>
+<h3>HTTP Request</h3>
+<p><code>GET /booking-set/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the Booking Set you&#39;re retrieving</td>
+</tr>
+</tbody></table>
+<h2 id='booking-set-create-a-booking-set'>Create a Booking Set</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"bookings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMYK111"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMYK111"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530284905</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"bookingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to create booking sets, bookings and the associated guests.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /booking-set</code></p>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>parentId</td>
+<td>string</td>
+<td>Some PMS support nested <a href="/#booking-set">BookingSets</a></td>
+</tr>
+<tr>
+<td>reference</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a href="/#contact">Contact</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bookings</td>
+<td>array of ids or <a href="/#booking">Bookings</a></td>
+<td>Providing booking objects will create new bookings</td>
+</tr>
+</tbody></table>
+<h2 id='booking-set-change-a-booking-set'>Change a Booking Set</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMYK112"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMYK112"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530284905</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"bookingIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530025705</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Used to update a booking set</p>
+<h3>HTTP Request</h3>
+<p><code>PATCH /booking-set/:id</code></p>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>parentId</td>
+<td>string</td>
+<td>Some PMS support nested <a href="/#booking-set">BookingSets</a></td>
+</tr>
+<tr>
+<td>reference</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a href="/#contact">Contact</a></td>
+<td></td>
+</tr>
+<tr>
+<td>bookings</td>
+<td>array of ids or <a href="/#booking">Bookings</a></td>
+<td>Providing booking objects will create new bookings</td>
+</tr>
+</tbody></table>
+<h1 id='booking-status'>Booking Status</h1>
+<p>A <a href="/#booking-status">Booking Status</a> represents the state of a booking.</p>
+<h2 id='booking-status-options'>Options</h2>
+<ul>
+<li><code>NO_SHOW</code></li>
+<li><code>CANCELLED</code></li>
+<li><code>CHECKED_IN</code></li>
+<li><code>CHECKED_OUT</code></li>
+</ul>
+
+<aside class="warning">
+  When writing, NO_SHOW is not supported by all PMS.
+</aside>
+<h1 id='charge'>Charge</h1>
+<p>A <a href="/#charge">Charge</a> is an incurrence of debt at the property. <a href="/#charge">Charges</a> belong to a <a href="/#bill">Bill</a>.</p>
+<h2 id='charge-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#charge">Charge</a></td>
+</tr>
+<tr>
+<td>billId</td>
+<td>string</td>
+<td>The <a href="/#bill">Bill</a> that the charge belongs to</td>
+</tr>
+<tr>
+<td>netAmount</td>
+<td>integer</td>
+<td>Amount before tax</td>
+</tr>
+<tr>
+<td>grossAmount</td>
+<td>integer</td>
+<td>Amount after tax</td>
+</tr>
+<tr>
+<td>taxAmount</td>
+<td>integer</td>
+<td>Tax expressed as an amount</td>
+</tr>
+<tr>
+<td>taxRate</td>
+<td>string</td>
+<td>Tax expressed as a fractional decimal (0 &gt; x &gt; 1.0)</td>
+</tr>
+<tr>
+<td>currencyCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-currency-codes">currencies</a></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>isVoid</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>chargedAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates caveats</a></td>
+</tr>
+</tbody></table>
+<h1 id='contact'>Contact</h1>
+<p>The <code>Contact</code> is an entity that is responsible for something (e.g. the primary booker for a booking).</p>
+<h2 id='contact-schema'>Schema</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guest"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td><code>guest</code> or <code>company</code></td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>Optional, if <code>type</code> is <code>guest</code> then an object that matches the <code>Guest</code> schema</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Optional</td>
+</tr>
+</tbody></table>
+
+<p>Where the <code>Contact</code> already exists with the PMS then <code>type</code> and <code>id</code> should be used, where the <code>Contact</code> is to be created, <code>type</code> and <code>data</code> should be used.</p>
+<h1 id='extra'>Extra</h1>
+<p>An <a href="/#extra">Extra</a> represents any good or service being sold by the hotel that isn&#39;t a room (although it could be a room upgrade).</p>
+<h2 id='extra-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>isActive</td>
+<td>boolean</td>
+<td>Is the extra historic or can it be purchased</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>billingScheme</td>
+<td><a href="/#billing-scheme">BillingScheme</a></td>
+<td></td>
+</tr>
+<tr>
+<td>netAmount</td>
+<td>integer</td>
+<td>Amount before tax</td>
+</tr>
+<tr>
+<td>grossAmount</td>
+<td>integer</td>
+<td>Amount after tax</td>
+</tr>
+<tr>
+<td>taxAmount</td>
+<td>integer</td>
+<td>Tax expressed as an amount</td>
+</tr>
+<tr>
+<td>taxRate</td>
+<td>string</td>
+<td>Tax expressed as a fractional decimal (0 &gt; x &gt; 1.0)</td>
+</tr>
+<tr>
+<td>currencyCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-currency-codes">currencies</a></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>The date that the extra was created. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>The time the extra was last updated. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h2 id='extra-getting-a-list-of-extras'>Getting a list of Extras</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to get all the extras available at a hotel.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /extra</code></p>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#extra">Extras</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='extra-getting-a-specific-extra-by-id'>Getting a specific Extra by id</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>GET /extra/:id</code></p>
+
+<p>Use this to get a specific extra available at the hotel.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /extra/:id</code></p>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#extra">Extra</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='guest'>Guest</h1>
+<p>A <a href="/#guest">Guest</a> represents a human person staying at a hotel.</p>
+<h2 id='guest-schema'>Schema</h2>
+<p>See below for the schema of the standard <code>Guest</code> object.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>middleName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sexCode</td>
+<td>integer</td>
+<td>There is special case for sexCode, as per the <a href="https://en.wikipedia.org/wiki/ISO/IEC_5218" target="_blank">ISO/IEC 5218</a> standard, if the PMS doesn&#39;t provide the information the value returned will not be null, and instead will be 0. This special case does not exempt sexCode from the caveat linked above</td>
+</tr>
+<tr>
+<td>emails</td>
+<td>array of Strings</td>
+<td></td>
+</tr>
+<tr>
+<td>phoneNumbers</td>
+<td>array of Strings</td>
+<td></td>
+</tr>
+<tr>
+<td>languageCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-codes">caveats</a></td>
+</tr>
+<tr>
+<td>nationalityCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-codes">caveats</a></td>
+</tr>
+<tr>
+<td>dateOfBirth</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>placeOfBirth</td>
+<td>string</td>
+<td>loyaltyPrograms</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>classifications</td>
+<td>array of <a href="/#guest-classification">GuestClassifications</a></td>
+<td></td>
+</tr>
+<tr>
+<td>documents</td>
+<td>array of <a href="/#document">Documents</a></td>
+<td></td>
+</tr>
+<tr>
+<td>addresses</td>
+<td>array of <a href="/#address">Addresses</a></td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>The date that the guest was created. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>The time the guest was last updated. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h2 id='guest-getting-all-guests'>Getting all Guests</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Edge-Case</code></p>
+
+<p>This is a very poorly supported endpoint amongst PMS and exists only support those few use cases where the PMS supports it.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /guest</code></p>
+<h3>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td><a href="/#caveats-dates">date</a></td>
+<td>The first date for which to check new or updated guests</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td><a href="/#caveats-dates">date</a></td>
+<td>The last date for which to check new or updated guests</td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#guest-schema">Guests</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='guest-getting-a-specific-guest'>Getting a specific Guest</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use when trying to retrieve information about a specific guest.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /guest/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The ID of the <a href="/#guest">Guest</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#guest-schema">Guest</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='guest-creating-a-new-guest'>Creating a new Guest</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Edge-Case</code></p>
+
+<p>Use when trying to create a new guest independent of a particular booking. This endpoint is <code>Edge-Case</code> as it is expected that you will create bookings as part of the <a href="/#booking">Booking</a> creation in the vast majority of cases.</p>
+<h3>HTTP Request</h3>
+<p><code>POST /guest</code></p>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>middleName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sexCode</td>
+<td>integer</td>
+<td>There is special case for sexCode, as per the <a href="https://en.wikipedia.org/wiki/ISO/IEC_5218" target="_blank">ISO/IEC 5218</a> standard, if the PMS doesn&#39;t provide the information the value returned will not be null, and instead will be 0. This special case does not exempt sexCode from the caveat linked above</td>
+</tr>
+<tr>
+<td>emails</td>
+<td>array of Strings</td>
+<td></td>
+</tr>
+<tr>
+<td>phoneNumbers</td>
+<td>array of Strings</td>
+<td></td>
+</tr>
+<tr>
+<td>languageCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-codes">caveats</a></td>
+</tr>
+<tr>
+<td>nationalityCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-codes">caveats</a></td>
+</tr>
+<tr>
+<td>dateOfBirth</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>placeOfBirth</td>
+<td>string</td>
+<td>loyaltyPrograms</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>classifications</td>
+<td>array of <a href="/#classification">GuestClassifications</a></td>
+<td></td>
+</tr>
+<tr>
+<td>documents</td>
+<td>array of <a href="/#document">Documents</a></td>
+<td></td>
+</tr>
+<tr>
+<td>addresses</td>
+<td>array of <a href="/#address">Addresses</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#guest-schema">Guest</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='guest-updating-an-existing-guest'>Updating an existing Guest</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use to update the existing record of a guest.</p>
+<h3>HTTP Request</h3>
+<p><code>PATCH /guest/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the guest.</td>
+</tr>
+</tbody></table>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>middleName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sexCode</td>
+<td>integer</td>
+<td>There is special case for sexCode, as per the <a href="https://en.wikipedia.org/wiki/ISO/IEC_5218" target="_blank">ISO/IEC 5218</a> standard, if the PMS doesn&#39;t provide the information the value returned will not be null, and instead will be 0. This special case does not exempt sexCode from the caveat linked above</td>
+</tr>
+<tr>
+<td>emails</td>
+<td>array of Strings</td>
+<td>Will replace existing emails.</td>
+</tr>
+<tr>
+<td>phoneNumbers</td>
+<td>array of Strings</td>
+<td>Will replace existing phoneNumbers</td>
+</tr>
+<tr>
+<td>languageCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-codes">caveats</a></td>
+</tr>
+<tr>
+<td>nationalityCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-codes">caveats</a></td>
+</tr>
+<tr>
+<td>dateOfBirth</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>placeOfBirth</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>loyaltyPrograms</td>
+<td>array of <a href="/#loyalty-program">LoyaltyPrograms</a></td>
+<td>Will replace existing loyalty programs</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>classifications</td>
+<td>array of <a href="/#classification">GuestClassifications</a></td>
+<td>Will replace existing classifications</td>
+</tr>
+<tr>
+<td>documents</td>
+<td>array of <a href="/#document">Documents</a></td>
+<td>Will replace existing documents</td>
+</tr>
+<tr>
+<td>addresses</td>
+<td>array of <a href="/#address">Addresses</a></td>
+<td>Will replace existing addresses</td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#guest-schema">Guest</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='guest-getting-a-guest-39-s-bill'>Getting a Guest&#39;s Bill</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Edge-Case</code></p>
+
+<p>This endpoint is a placeholder in case a future PMS has billing attached to guests and for whatever reason this cannot mapped through <a href="/#booking">Booking</a>.</p>
+
+<p>There are no cases where it is currently necessary to implement this endpoint.</p>
+
+<p>The <code>Standard-Flow</code> endpoint for achieving the same result is to use the <a href="/#booking-getting-the-bill-for-a-booking">Booking</a> resource to retrieve the relevant bill.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /guest/:id/bill</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the guest.</td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#bill-schema">Bill</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='guest-classification'>Guest Classification</h1>
+<p>An extra identifier by which to classify a guest.</p>
+<h2 id='guest-classification-read-options'>Read Options</h2>
+<p>This list represents the options that may be returned when reading from a PMS:</p>
+
+<ul>
+<li>PAYMASTER_ACCOUNT</li>
+<li>BLACKLIST</li>
+<li>MEDIA</li>
+<li>LOYALTY_PROGRAM</li>
+<li>COMPLAINED</li>
+<li>RETURNING</li>
+<li>STAFF</li>
+<li>FRIEND_OR_FAMILY</li>
+<li>MANAGEMENT</li>
+<li>IP</li>
+<li>VIP</li>
+<li>PROBLEMATIC</li>
+<li>CASHLIST</li>
+<li>DISABLED</li>
+<li>MILITARY</li>
+<li>MARKETING_SUBSCRIBED</li>
+<li>SMOKER</li>
+<li>OTHER</li>
+</ul>
+<h2 id='guest-classification-write-options'>Write Options</h2>
+<p>It is not currently supported to write a guest classification.</p>
+<h1 id='loyalty-program'>Loyalty Program</h1><h2 id='loyalty-program-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>The code representing the scheme</td>
+</tr>
+<tr>
+<td>membershipNumber</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>memberSince</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h1 id='payment'>Payment</h1>
+<p>A <a href="/#payment">Payment</a> is a transfer of credit from someone to the property. <a href="/#payment">Payments</a> belong to a <a href="/#bill">Bill</a>.</p>
+<h2 id='payment-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>billId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>The amount paid</td>
+</tr>
+<tr>
+<td>currencyCode</td>
+<td>string</td>
+<td>See <a href="/#caveats-prices">prices</a></td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>isVoid</td>
+<td>boolean</td>
+<td>Extremely limited PMS support, means void payment rather than a &quot;refund&quot;</td>
+</tr>
+<tr>
+<td>paymentType</td>
+<td><a href="/#payment-type">PaymentType</a></td>
+<td></td>
+</tr>
+<tr>
+<td>paidAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h1 id='payment-type'>Payment Type</h1>
+<p>A <a href="/#payment_type">Payment Type</a> is a string with the following possible values:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Write Support?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CASH</td>
+<td></td>
+<td>All PMS</td>
+</tr>
+<tr>
+<td>CARD</td>
+<td>Covers all card types</td>
+<td>All PMS</td>
+</tr>
+<tr>
+<td>BANK_TRANSFER</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CHARGE_TO_COMPANY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CHECK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VOUCHER</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>PMS provided a response which mapped to &quot;other&quot; or a fringe payment method</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+  Not all PMS support all payment types. If you pass through an unsupported type, whatever the PMS defaults to will be used.
+</aside>
+<h1 id='rate-plan'>Rate Plan</h1>
+<p>A <a href="/#rate-plan">Rate Plan</a> is a set of prices with a common name and set of restrictions.</p>
+<h2 id='rate-plan-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the RatePlan</td>
+</tr>
+<tr>
+<td>isActive</td>
+<td>boolean</td>
+<td>Is the rate plan currently bookable</td>
+</tr>
+<tr>
+<td>isPublic</td>
+<td>boolean</td>
+<td>Is the rate plan available publicly or is qualified somehow</td>
+</tr>
+<tr>
+<td>rateSetId</td>
+<td>string</td>
+<td>Will be <code>null</code> in PMS that do not support rate sets</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>rateRestrictions</td>
+<td>array of <a href="/#rate-restriction">RateRestrictions</a></td>
+<td></td>
+</tr>
+<tr>
+<td>rateSupplements</td>
+<td>array of <a href="/#rate-supplement">RateSupplements</a></td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h2 id='rate-plan-get-all-rate-plans'>Get all Rate Plans</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve all <a href="#rate-plan">Rate Plans</a> at the property.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /rate-plan</code></p>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#rate-plan">RatePlans</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='rate-plan-get-a-specific-rate-plan'>Get a specific Rate Plan</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve a specific <a href="/#rate-plan">Rate Plan</a> at the property.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /rate-plan/:id</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#rate-plan">RatePlan</a></td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#rate-plan">RatePlan</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='rate-plan-get-the-price-of-a-rate-plan'>Get the price of a Rate Plan</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to retrieve the prices listed by the property (both base and area specific) between two dates.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /rate-plan/:id/price</code></p>
+<h3>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the <a href="/#rate-plan">RatePlan</a></td>
+</tr>
+</tbody></table>
+<h3>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td>date</td>
+<td>Required. The first date to return prices for. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>date</td>
+<td>Required. The last date to return prices for. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>areaTypeId</td>
+<td>string</td>
+<td>Optional. If not provided then the base rate price will be returned.</td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#rate-price">RatePrices</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='rate-plan-make-a-pricing-decision-for-a-rate-plan'>Make a pricing decision for a Rate Plan</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Standard-Flow</code></p>
+
+<p>Use this to change the price for a <a href="/#rate-plan">RatePlan</a> at a date (either for a specific <a href="/#area-type">AreaType</a> or the base rate).</p>
+<h3>HTTP Request</h3>
+<p><code>PUT /rate-plan/:id/price</code></p>
+<h3>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>date</td>
+<td>Required. See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>amountDescription</td>
+<td><a href="/#amount-description">AmountDescription</a></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>areaTypeId</td>
+<td>string</td>
+<td>Optional. Will attempt to change the <a href="/#handling-rates-what-is-a-base-price">base price</a> if omitted.</td>
+</tr>
+</tbody></table>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><a href="/#rate-price">RatePrice</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='rate-price'>Rate Price</h1>
+<p>A <a href="/#rate-price">Rate Price</a> represents the price of a rate plan given a particular area type (or base price) on a particular date.</p>
+<h2 id='rate-price-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>timestamp</td>
+<td>See <a href="/#caveat-dates">dates</a></td>
+</tr>
+<tr>
+<td>price</td>
+<td><a href="/#amount-description">AmountDescription</a></td>
+<td></td>
+</tr>
+<tr>
+<td>areaTypeId</td>
+<td>string</td>
+<td>Will be omitted if the <a href="/#rate-price">RatePrice</a> represents a <a href="#handling-rates-what-is-a-base-price">base price</a></td>
+</tr>
+<tr>
+<td>supplements</td>
+<td><a href="/#rate-supplements">RateSupplements</a></td>
+<td>See below</td>
+</tr>
+<tr>
+<td>restrictions</td>
+<td><a href="/#rate-restrictions">RateRestrictions</a></td>
+<td>See below</td>
+</tr>
+</tbody></table>
+
+<p><code>supplements</code> and <code>restrictions</code> may appear on the <a href="/#rate-price">RatePrice</a> object rather than the parent <a href="/#rate-plan">RatePlan</a> in PMS where there are per-<a href="/#area-type">AreaType</a> restrictions and supplements</p>
+<h1 id='rate-restriction'>Rate Restriction</h1>
+<p>A <a href="/#rate-restriction">Rate Restriction</a> is a reason why a rate wouldn&#39;t be applicable.</p>
+<h2 id='rate-restriction-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td>timestamp</td>
+<td>The date that the restriction application begins (may be null for timeless restriction). See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>timestamp</td>
+<td>The date that the restriction application begins (may be null for timeless restriction). See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>daysCovered</td>
+<td>array of strings</td>
+<td>Days the restriction applies on (may be null). See below.</td>
+</tr>
+<tr>
+<td>minAdvanceDays</td>
+<td>number</td>
+<td>Minimum days in advance of the stay the booking must be made</td>
+</tr>
+<tr>
+<td>maxAdvanceDays</td>
+<td>number</td>
+<td>Maximum days in advance of the stay the booking can be made</td>
+</tr>
+<tr>
+<td>minLengthOfStay</td>
+<td>number</td>
+<td>The minimum number of nights the guest must stay to qualify for the rate</td>
+</tr>
+<tr>
+<td>maxLengthOfStay</td>
+<td>number</td>
+<td>The maximum number of nights the guest can stay to qualify for the rate</td>
+</tr>
+<tr>
+<td>type</td>
+<td><a href="#rate-restriction-type">RateRestrictionType</a></td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h3>daysCovered</h3>
+<p>One of the following:</p>
+
+<ul>
+<li><code>MONDAY</code></li>
+<li><code>TUESDAY</code></li>
+<li><code>WEDNESDAY</code></li>
+<li><code>THURSDAY</code></li>
+<li><code>FRIDAY</code></li>
+<li><code>SATURDAY</code></li>
+<li><code>SUNDAY</code></li>
+</ul>
+<h1 id='rate-restriction-type'>Rate Restriction Type</h1>
+<p>A <a href="/#rate-restriction-type">Rate Restriction Type</a> refers to the type that applies to a rate restriction. (The kind of sentence you&#39;ll only ever find in technical documentation).</p>
+<h2 id='rate-restriction-type-options'>Options</h2><h1 id='rate-set'>Rate Set</h1>
+<p>A <a href="/#rate-set">Rate Set</a> is a container for one or more <a href="/#rate-plan">Rate Plans</a>.</p>
+
+<p><a href="/#rate-set">Rate Sets</a> are largely <code>Edge-Case</code> within Impala and should only be used in the case where you have specific support requirements at a specific PMS.</p>
+
+<p>For more information, see <a href="/#handling-rates">Handling Rates</a>.</p>
+<h2 id='rate-set-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>This ID of the RateSet</td>
+</tr>
+<tr>
+<td>isActive</td>
+<td>boolean</td>
+<td>Is the rate set currently bookable?</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>ratePlanIds</td>
+<td>array of strings</td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h2 id='rate-set-get-all-rate-sets'>Get all Rate Sets</h2>
+<blockquote>
+<p>Example calls</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  Updating
+</code></pre>
+<p><code>Edge-Case</code></p>
+
+<p>Use this, <em>where absolutely necessary</em> to retrieve rate sets.</p>
+<h3>HTTP Request</h3>
+<p><code>GET /rate-set</code></p>
+<h3>Return Value</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>array of <a href="/#rate-sets">RateSets</a></td>
+<td></td>
+</tr>
+<tr>
+<td>_meta</td>
+<td>Object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='rate-supplement'>Rate Supplement</h1>
+<p>A <a href="/#rate-supplement">Rate Supplement</a> represents something additional to the standard rate price of an <a href="/#area">Area</a> that may need to be paid.</p>
+<h2 id='rate-supplement-schema'>Schema</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quantity</td>
+<td>integer</td>
+<td>e.g. The number of additional guests</td>
+</tr>
+<tr>
+<td>type</td>
+<td><a href="/#rate-supplement-type">RateSupplementType</a></td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td><a href="/#amount-description">AmountDescription</a></td>
+<td></td>
+</tr>
+<tr>
+<td>billingScheme</td>
+<td><a href="/#billing-scheme">BillingScheme</a></td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>timestamp</td>
+<td>See <a href="/#caveats-dates">dates</a></td>
+</tr>
+</tbody></table>
+<h1 id='rate-supplement-type'>Rate Supplement Type</h1>
+<p>A <a href="/#rate-supplement-type">Rate Supplement Type</a> describes how the <a href="/#rate-supplement">Rate Supplement</a> should be applied.</p>
+
+<p>It is often used by PMS to describe tax.</p>
+<h2 id='rate-supplement-type-options'>Options</h2>
+<ul>
+<li><code>TOTAL_TAX</code></li>
+<li><code>SURCHARGE</code></li>
+<li><code>SERVICE_CHARGE</code></li>
+<li><code>MISC</code></li>
+<li><code>VATGST_TAX</code></li>
+<li><code>LODGING_TAX</code></li>
+<li><code>STATE_TAX</code></li>
+<li><code>CITY_TAX</code></li>
+<li><code>OCCUPANCY_TAX</code></li>
+<li><code>LOCAL_FEE</code></li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="javascript">Node</a>
+                <a href="#" data-language-name="php">PHP</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
